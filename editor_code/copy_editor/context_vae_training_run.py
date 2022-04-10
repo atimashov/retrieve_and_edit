@@ -1,4 +1,5 @@
-import cPickle as pickle
+# import cPickle as pickle
+import pickle # Sasha
 import codecs
 import random
 from collections import defaultdict
