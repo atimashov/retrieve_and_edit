@@ -1,4 +1,5 @@
-import cPickle as pickle
+# import cPickle as pickle
+import pickle # Sasha
 import codecs
 import contextlib
 from contextlib import contextmanager
@@ -13,7 +14,8 @@ import time
 from Queue import Queue, Empty
 from abc import ABCMeta, abstractmethod
 from collections import Mapping, OrderedDict
-from itertools import izip
+# from itertools import izip
+from itertools import zip_longest as izip # Sasha
 from os.path import join
 from threading import Thread
 
@@ -139,7 +141,7 @@ def work_in_sandbox(directory):
         shutil.rmtree(p)
     os.makedirs(p)
     os.chdir(p)
-    print os.getcwd()
+    print(os.getcwd())
 
 
 def makedirs(directory):
@@ -179,10 +181,10 @@ def read_files(*file_paths):
     for i, p in enumerate(file_paths):
         if p:
             files.append(open(p, mode="r"))
-            print 'Opened:', p
+            print('Opened:', p)
         else:
             files.append(EmptyFile())
-            print 'WARNING: no path provided for file {} in list.'.format(i)
+            print('WARNING: no path provided for file {} in list.'.format(i))
 
     with contextlib.nested(*files) as entered_files:
         for lines in izip(*entered_files):
@@ -296,7 +298,7 @@ def shell(cmd, cwd=None, verbose=False, debug=False):
         all output from the command
     """
     if verbose:
-        print cmd
+        print(cmd)
 
     if debug:
         return
