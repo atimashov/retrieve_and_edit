@@ -329,7 +329,7 @@ def data_split(items, dev_part=0.1, test_part=0.1):
     assert len(train_set.intersection(dev_set)) == 0
     assert len(train_set.intersection(test_set)) == 0
 
-    print 'train {}, dev {}, test {}'.format(len(train), len(dev), len(test))
+    print('train {}, dev {}, test {}'.format(len(train), len(dev), len(test)))
     return train, dev, test
 
 
