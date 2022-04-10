@@ -79,7 +79,7 @@ class ContextVAETrainingRun(TorchTrainingRun):
 
         # build model
         with random_seed(config.optim.seed):
-            print 'seed:'+str(config.optim.seed)
+            print('seed:'+str(config.optim.seed))
             model, optimizer = self._build_model(config.model, config.optim, config.dataset)
             self.train_state = self.checkpoints.load_latest(model, optimizer)
 
@@ -176,7 +176,7 @@ class ContextVAETrainingRun(TorchTrainingRun):
                         with open(examples_path, 'w') as f:
                             pickle.dump(batch, f)
 
-                        print 'Gradient was NaN/inf on step {}.'.format(train_state.train_steps)
+                        print('Gradient was NaN/inf on step {}.'.format(train_state.train_steps))
 
                     step = train_state.train_steps
 
