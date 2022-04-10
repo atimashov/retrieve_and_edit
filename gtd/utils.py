@@ -1092,7 +1092,7 @@ def parallel_call(fxn, vals):
             executor.submit(val, val)
         for val, result in gtd.chrono.verboserate(executor.results(), desc='Processing values', total=len(vals)):
             if isinstance(result, Failure):
-                print result.traceback
+                print(result.traceback)
             else:
                 results.append(result)
     return results
