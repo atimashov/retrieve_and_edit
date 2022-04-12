@@ -11,7 +11,8 @@ import shutil
 import subprocess
 import sys
 import time
-from Queue import Queue, Empty
+# from Queue import Queue, Empty
+from queue import Queue, Empty # Alex
 from abc import ABCMeta, abstractmethod
 from collections import Mapping, OrderedDict
 # from itertools import izip
