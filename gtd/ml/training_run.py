@@ -70,8 +70,8 @@ class TrainingRun(object):
         repo = Repo(src_dir)
         diffindex = repo.head.commit.diff(None, create_patch=True)
         if len(diffindex) > 0:
-            print 'Saving uncomitted changes as patches.'
-            print 'Apply them with the `patch` command line tool.'
+            print('Saving uncomitted changes as patches.')
+            print('Apply them with the `patch` command line tool.')
 
             for diff in diffindex:
                 filename = unicode(diff.a_rawpath).replace(u'/', u'-').replace(u'.', u'-')
@@ -81,7 +81,7 @@ class TrainingRun(object):
                     try:
                         s = s.decode('utf-8')
                     except UnicodeDecodeError:
-                        print u'Failed to save patch for {}'.format(filename)
+                        print(u'Failed to save patch for {}'.format(filename))
                         return
 
                     path = join(patch_dir, filename + ext)
@@ -91,7 +91,7 @@ class TrainingRun(object):
                 to_file(diff.diff, '.patch')
                 to_file(str(diff), '.txt')
         else:
-            print 'No uncommitted changes.'
+            print('No uncommitted changes.')
 
     def match_commit(self, src_dir):
         """Check that the current commit matches the recorded commit for this run.
@@ -149,7 +149,7 @@ class TrainingRuns(Mapping):
 
     def new(self, config, name=None):
         """Create a new TrainingRun."""
-        print 'TrainingRun configuration:\n{}'.format(config)
+        print('TrainingRun configuration:\n{}'.format(config))
 
         save_dir = self._int_dirs.new_dir(name=name)
         cfg_path = self._config_path(save_dir)
@@ -159,10 +159,10 @@ class TrainingRuns(Mapping):
             run.record_commit(self._src_dir)
             run.dump_diff(self._src_dir)
         except InvalidGitRepositoryError:
-            print 'WARNING: could not obtain Git information.'
+            print('WARNING: could not obtain Git information.')
         run.metadata['config'] = config._config_tree  # save config in metadata, for programmatic access
 
-        print 'New TrainingRun created at: {}'.format(run.workspace.root)
+        print('New TrainingRun created at: {}'.format(run.workspace.root))
         return run
 
     def __iter__(self):
