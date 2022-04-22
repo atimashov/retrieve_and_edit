@@ -3,7 +3,8 @@ import pickle
 import codecs
 import random
 from collections import defaultdict
-from itertools import izip
+# from itertools import izip
+from itertools import zip_longest as izip # Alex
 from os.path import dirname, realpath, join
 
 import numpy as np

@@ -1,8 +1,10 @@
-import cPickle as pickle
+# import cPickle as pickle
+import pickle
 import codecs
 import random
 from collections import defaultdict
-from itertools import izip
+# from itertools import izip
+from itertools import zip_longest as izip # Alex
 from os.path import dirname, realpath, join
 
 import numpy as np
@@ -80,7 +82,7 @@ class RetrieveEditTrainingRun(TorchTrainingRun):
 
         # build model
         with random_seed(config.optim.seed):
-            print 'seed:'+str(config.optim.seed)
+            print('seed:'+str(config.optim.seed))
             model, optimizer = self._build_model(config.model, config.optim, config.dataset)
             if ckpt is None:
                 self.train_state = self.checkpoints.load_latest(model, optimizer)
@@ -279,7 +281,7 @@ class RetrieveEditTrainingRun(TorchTrainingRun):
             #examples_path = join(workspace.nan_checkpoints, '{}.examples'.format(train_state.train_steps))
             #with open(examples_path, 'w') as f:
             #    pickle.dump(batch, f)
-            print 'Gradient was NaN/inf on step {}.'.format(train_state.train_steps)
+            print('Gradient was NaN/inf on step {}.'.format(train_state.train_steps))
 
     def eval_and_save(self, editor, step, train_state, config, grad_norm, train_ex, valid_ex):
         # run periodic evaluation and saving
