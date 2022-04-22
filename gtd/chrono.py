@@ -175,7 +175,7 @@ class ProfilerStats(Mapping):
 
         for stats in fxn_stats:
             if stats.empty: continue
-            print stats
+            print(stats) # Alex
 
 
 class FunctionStats(object):
@@ -240,12 +240,12 @@ def profile(f):
 
 @contextmanager
 def timer(name='unnamed'):
-    print 'Start: {}'.format(name)
+    print('Start: {}'.format(name)) # Alex
     sys.stdout.flush()
     start = time.time()
     yield
     stop = time.time()
-    print 'Finish: {} ({} s)'.format(name, stop - start)
+    print('Finish: {} ({} s)'.format(name, stop - start)) # Alex
     sys.stdout.flush()
 
 
@@ -312,6 +312,6 @@ def monitor_call_stack():
         f = sys.stderr
 
     faulthandler.register(signal.SIGUSR1, file=f)
-    print 'To monitor call stack, type this at command line: kill -USR1 {}'.format(os.getpid())
-    print 'Call stack will be printed to stderr' \
-          '(in IPython Notebook, this will show in the terminal where you launched the notebook.)'
+    print('To monitor call stack, type this at command line: kill -USR1 {}'.format(os.getpid())) # Alex
+    print('Call stack will be printed to stderr' \
+          '(in IPython Notebook, this will show in the terminal where you launched the notebook.)') # Alex
