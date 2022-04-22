@@ -1,5 +1,7 @@
 from collections import namedtuple
-from itertools import izip
+# from itertools import izip
+from itertools import zip_longest as izip # Alex
+
 
 from gtd.text import word_to_forms
 
