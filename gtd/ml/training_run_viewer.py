@@ -84,7 +84,7 @@ class TrainingRunViewer(object):
             jupyter_no_margins()
             display(HTML(table.get_html_string()))
         else:
-            print table
+            print(table)
 
 
 class Renderer(object):
