@@ -5,7 +5,7 @@ os.environ['CUDA_VISIBLE_DEVICES']='0'
 from gtd.utils import Config
 
 from editor_code.copy_editor.context_vae_training_run import ContextVAETrainingRuns
-print(os.environ['COPY_EDIT_DATA'])
+# print(os.environ['COPY_EDIT_DATA']) # Alex: commented
 
 #no-profile
 profile=False
