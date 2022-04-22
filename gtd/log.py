@@ -150,7 +150,7 @@ class SyncedMetadata(Metadata):
 
 def print_list(l):
     for item in l:
-        print item
+        print(item) # Alex
 
 
 def print_no_newline(s):
