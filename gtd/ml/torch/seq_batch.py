@@ -1,5 +1,6 @@
 from collections import namedtuple
-from itertools import izip
+# from itertools import izip
+from itertools import zip_longest as izip # Alex
 
 import numpy as np
 import torch

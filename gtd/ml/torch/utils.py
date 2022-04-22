@@ -4,8 +4,7 @@ from contextlib import contextmanager
 import numpy as np
 from numpy.testing import assert_array_almost_equal
 # from torch import _TensorBase, torch
-# Alex
-import torch
+import torch # Alex
 from torch.autograd import Variable
 
 from gtd.utils import chunks
