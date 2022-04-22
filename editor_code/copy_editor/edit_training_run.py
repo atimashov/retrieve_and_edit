@@ -1,4 +1,5 @@
-import cPickle as pickle
+# import cPickle as pickle
+import pickle
 import codecs
 import random
 from collections import defaultdict
@@ -110,8 +111,8 @@ class EditDataSplits(object):
                             continue
                         examples.append(ex)
                     except:
-                        print 'bad formatting in line ' + str(lnum)
-                        print line
+                        print('bad formatting in line ' + str(lnum))
+                        print(line)
 
             return examples
 
@@ -130,7 +131,7 @@ class EditTrainingRun(TorchTrainingRun):
 
         # build model
         with random_seed(config.optim.seed):
-            print 'seed:'+str(config.optim.seed)
+            print('seed:'+str(config.optim.seed))
             model, optimizer = self._build_model(config.model, config.optim, config.dataset)
             self.train_state = self.checkpoints.load_latest(model, optimizer)
 
@@ -221,7 +222,7 @@ class EditTrainingRun(TorchTrainingRun):
                         with open(examples_path, 'w') as f:
                             pickle.dump(batch, f)
 
-                        print 'Gradient was NaN/inf on step {}.'.format(train_state.train_steps)
+                        print('Gradient was NaN/inf on step {}.'.format(train_state.train_steps))
 
                     step = train_state.train_steps
 
