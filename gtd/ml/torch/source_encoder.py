@@ -1,6 +1,8 @@
 from abc import ABCMeta, abstractmethod, abstractproperty
 from collections import namedtuple
-from itertools import izip
+# from itertools import izip
+from itertools import zip_longest as izip # Alex
+
 
 import torch
 from gtd.ml.torch.recurrent import tile_state, gated_update
