@@ -231,15 +231,15 @@ class Editor(Module):
             self.train()  # set back to train mode
 
             if abs(lindivid - ltogether)> 1e-3:
-                print examples[0:2]
-                print 'individually:'
-                print lindivid
-                print 'batched:'
-                print ltogether
+                print(examples[0:2])
+                print('individually:')
+                print(lindivid)
+                print('batched:')
+                print(ltogether)
                 raise Exception('batching error - examples do not produce identical results under batching')
         else:
             raise Exception('test_batch called with example list of length < 2')
-        print 'Passed batching test'
+        print('Passed batching test')
 
     def edit(self, examples, max_seq_length=150, beam_size=5, batch_size=64, constrain_vocab=False, verbose=False):
         """Performs edits on a batch of source sentences.
@@ -319,13 +319,13 @@ default is False
         # gold_nll = nll(ex)
         # output_nll = nll(output_ex)
 
-        print 'output:'
-        print ' '.join(output_words)
+        print('output:')
+        print(' '.join(output_words))
 
         if verbose:
             # print
             # print 'output NLL: {}, gold NLL: {}'.format(output_nll, gold_nll)
-            print edit_trace
+            print(edit_trace)
 
     def get_vectors(self, tset):
         """
