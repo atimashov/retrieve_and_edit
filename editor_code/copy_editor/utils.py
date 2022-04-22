@@ -74,12 +74,15 @@ def edit_dist(s, t, transform_cost=None, delete_cost=None, insert_cost=None):
         insert_cost = lambda x: 1.0
 
     m, n = len(s), len(t)
-    dp = [[None] * (n + 1) for _ in xrange(m + 1)]
+#     dp = [[None] * (n + 1) for _ in xrange(m + 1)]
+    dp = [[None] * (n + 1) for _ in range(m + 1)] # Alex
     inf = float('inf')
 
     # each DP cell holds the minimum value, plus the optimal decision
-    for i in xrange(m, -1, -1):
-        for j in xrange(n, -1, -1):
+    # for i in xrange(m, -1, -1):
+    for i in range(m, -1, -1): # Alex
+        # for j in xrange(n, -1, -1):
+        for j in range(n, -1, -1): # Alex
             s_gone = (i == m)  # s is empty
             t_gone = (j == n)  # t is empty
 

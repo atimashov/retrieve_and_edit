@@ -58,7 +58,8 @@ class Example(namedtuple('Example', ['question', 'answer_span', 'rule_answer', '
         )
 
     def __repr__(self):
-        return unicode(self).encode('utf-8')
+        # return unicode(self).encode('utf-8')
+        return str(self).encode('utf-8')
 
 
 def unicode_csv_reader(unicode_csv_data, dialect=csv.excel, **kwargs):
@@ -66,8 +67,8 @@ def unicode_csv_reader(unicode_csv_data, dialect=csv.excel, **kwargs):
     csv_reader = csv.reader(utf_8_encoder(unicode_csv_data), dialect=dialect, **kwargs)
     for row in csv_reader:
         # decode UTF-8 back to Unicode, cell by cell:
-        yield [unicode(cell, 'utf-8') for cell in row]
-
+        # yield [unicode(cell, 'utf-8') for cell in row]
+        yield [str(cell, 'utf-8') for cell in row] # Alex
 
 def utf_8_encoder(unicode_csv_data):
     for line in unicode_csv_data:
@@ -103,7 +104,7 @@ class Examples(list):
             examples.append(Example(q, aspan, r, g, uid, valid))
 
         if skipped:
-            print 'Skipped some poorly formatted examples: {}'.format(skipped)
+            print('Skipped some poorly formatted examples: {}'.format(skipped))
 
         super(Examples, self).__init__(examples)
 

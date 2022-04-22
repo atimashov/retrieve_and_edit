@@ -364,12 +364,15 @@ class RetrieveEditTrainingRun(TorchTrainingRun):
         enc_loss = np.sum(np.array(enc_losses) * weights) / np.sum(weights)
 
         punct_table = dict.fromkeys(
-            i for i in xrange(sys.maxunicode) if unicodedata.category(unichr(i)).startswith('P'))
+            # i for i in xrange(sys.maxunicode) if unicodedata.category(unichr(i)).startswith('P')
+            i for i in range(sys.maxunicode) if unicodedata.category(chr(i)).startswith('P') # Alex
+        )
 
         def remove_punct(s):
             new_s = []
             for t in s:
-                t = unicode(t).translate(punct_table)
+#                 t = unicode(t).translate(punct_table)
+                t = str(t).translate(punct_table) # Alex
                 if t != '':
                     new_s.append(t)
             return new_s

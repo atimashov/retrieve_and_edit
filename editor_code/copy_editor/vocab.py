@@ -28,7 +28,8 @@ class HardCopyVocab(CasedWordVocab):
         tokens.extend(base_tokens)  # add base tokens
 
         # add copy tokens
-        copy_tokens = [self.copy_index_to_token(i) for i in xrange(num_copy_tokens)]
+        copy_tokens = [self.copy_index_to_token(i) for i in xrange(num_copy_tokens)] #
+        copy_tokens = [self.copy_index_to_token(i) for i in range(num_copy_tokens)] # Alex
         tokens.extend(copy_tokens)
 
         # create CasedWordVocab. Note that case is ignored.
@@ -71,7 +72,8 @@ def load_embeddings(file_path, word_dim, vocab_size, num_copy_tokens):
     # check that tokens come in the order that we assumed
     correct_tokens = list(special_tokens)  # special tokens first
     correct_tokens.extend(base_embeds.vocab.tokens)  # then base tokens
-    correct_tokens.extend('<copy{}>'.format(i) for i in xrange(num_copy_tokens))  # copy tokens last
+#     correct_tokens.extend('<copy{}>'.format(i) for i in xrange(num_copy_tokens))  # copy tokens last
+    correct_tokens.extend('<copy{}>'.format(i) for i in range(num_copy_tokens))  # Alex
     assert new_vocab.tokens == correct_tokens
 
     return SimpleEmbeddings(new_array, new_vocab)
