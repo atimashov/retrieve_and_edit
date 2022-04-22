@@ -103,7 +103,7 @@ class TrainFlagEmbedding(Module):
                 num_embeddings, embedding_dim, **kwargs)
             # embedding.weight.data.set_(
             #     torch.from_numpy(initial_embeddings))
-            with torch.no_grad: # Alex
+            with torch.no_grad(): # Alex
                 embedding.weight.set_(
                     torch.from_numpy(initial_embeddings)) # Alex
             self._embedding = embedding
