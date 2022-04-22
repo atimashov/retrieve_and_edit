@@ -28,7 +28,7 @@ class HardCopyVocab(CasedWordVocab):
         tokens.extend(base_tokens)  # add base tokens
 
         # add copy tokens
-        copy_tokens = [self.copy_index_to_token(i) for i in xrange(num_copy_tokens)] #
+        # copy_tokens = [self.copy_index_to_token(i) for i in xrange(num_copy_tokens)] #
         copy_tokens = [self.copy_index_to_token(i) for i in range(num_copy_tokens)] # Alex
         tokens.extend(copy_tokens)
 
